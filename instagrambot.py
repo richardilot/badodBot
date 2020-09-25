@@ -29,8 +29,8 @@ async def on_message(message):
 
       posts = instaloader.Profile.from_username(mod.context, thot).get_posts()
 
-      SINCE = datetime(int(tahun), int(bulan), int(tanggal)-1)  # further from today, inclusive
-      UNTIL = datetime(int(tahun), int(bulan), int(tanggal)+1)  # closer to today, not inclusive
+      SINCE = datetime(int(tahun), int(bulan), int(tanggal)-10)  # further from today, inclusive
+      UNTIL = datetime(int(tahun), int(bulan), int(tanggal))  # closer to today, not inclusive
 
       cunt = 0  # initiate count
 
@@ -48,7 +48,4 @@ async def on_message(message):
         else:
             cunt = 0  #set count to 0
             file = discord.File(mod.download_post(post, thot), filename="if she breaths, she's a thot")
-
-
-    elif message.content == thot + " " + tahun + " " + bulan + " " + tanggal:
-        await message.channel.send(file)
+            await message.channel.send(file)
